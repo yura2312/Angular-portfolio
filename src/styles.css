@@ -1,9 +1,119 @@
-/* You can add global styles to this file, and also import other style files */
-
-@import "tailwindcss";
-
-@theme {
-    --color-onyx: #000f08;
-    --color-pumpkin: #fb8500;
-    --color-ice: #efefef;
+@import "tailwindcss" ;
+@font-face {
+  font-family: 'Archivo';
+  src: url('/archivo.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Daiki Japanese';
+  src: url('/daiki-japanese.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+}
+:root {
+  --ground: #392255;
+  --ink: #f1eeff;
+  --accent: #c4f45b;
+  --support: #ad8bd5;
+  --muted: #d1c2e1;
+  --line: #73578d;
+  --on-accent: #24202e;
+  --contact-line: #7e9c3b;
+  --japanese: 'Daiki Japanese', 'Noto Sans CJK JP', sans-serif;
+  color-scheme: dark;
+}
+app-root {
+  display: block;
+  min-height: 100svh;
+  background: var(--ground);
+  color: var(--ink);
+}
+:root:has(app-root[data-theme='eva02']) {
+  --ground: #8b201f;
+  --ink: #fff3e8;
+  --accent: #ffd15c;
+  --support: #ee806b;
+  --muted: #f1c1b7;
+  --line: #b86b60;
+  --on-accent: #421715;
+  --contact-line: #b39042;
+}
+:root:has(app-root[data-theme='eva00']) {
+  --ground: #143d65;
+  --ink: #f5f3ed;
+  --accent: #ffb456;
+  --support: #82b9e0;
+  --muted: #b9d7e9;
+  --line: #4c7799;
+  --on-accent: #17344b;
+  --contact-line: #b08043;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--support) var(--ground);
+}
+body {
+  margin: 0;
+  background: var(--ground);
+  font-family: 'Archivo', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+}
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+.site-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 10;
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: 12px 20px;
+}
+.skip-link:focus {
+  top: 16px;
+}
+@media (max-width: 800px) {
+  .site-shell {
+    padding: 0 32px;
+  }
+}
+@media (max-width: 600px) {
+  .site-shell {
+    padding: 0 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

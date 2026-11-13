@@ -1,9 +1,8 @@
 import { Routes } from '@angular/router';
 import { About } from './about/about';
-import { Blog } from './blog/blog';
 
-export const routes: Routes = 
-[
-  {path: '', component: About},
-  {path: 'blog', component: Blog}
+export const routes: Routes = [
+  { path: '', component: About, title: 'Gabriel Romao 大輝 丸山 — Engenheiro de Software' },
+  { path: 'blog', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '' },
 ];
